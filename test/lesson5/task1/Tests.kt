@@ -328,6 +328,41 @@ class Tests {
                 450
             )
         )
+        assertEquals(
+            setOf("0", "1"),
+            bagPacking(
+                mapOf("0" to (1 to 1), "1" to (1 to 2)),
+                2
+            )
+        )
+        assertEquals(
+            setOf("0", "1"),
+            bagPacking(
+                mapOf("0" to (1 to 1), "1" to (1 to 2)),
+                2
+            )
+        )
+        assertEquals(
+            setOf("0"),
+            bagPacking(
+                mapOf("0" to (1 to 1)),
+                2
+            )
+        )
+        assertEquals(
+            setOf("3", "2", "0"),
+            bagPacking(
+                mapOf("0" to (1 to 1), "1" to (300 to 1), "2" to (1 to 1), "3" to (32 to 2)),
+                323
+            )
+        )
+        assertEquals(
+            setOf("0"),
+            bagPacking(
+                mapOf("0" to (1 to 2), "1" to (1 to 1)),
+                1
+            )
+        )
     }
 
     // TODO: map task tests

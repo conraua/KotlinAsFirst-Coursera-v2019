@@ -89,6 +89,7 @@ class Tests {
     @Test
     @Tag("Hard")
     fun plusMinus() {
+        assertThrows(IllegalArgumentException::class.java) { plusMinus("") }
         assertEquals(0, plusMinus("0"))
         assertEquals(4, plusMinus("2 + 2"))
         assertEquals(6, plusMinus("2 + 31 - 40 + 13"))
@@ -131,6 +132,8 @@ class Tests {
     @Test
     @Tag("Impossible")
     fun computeDeviceCells() {
+        assertEquals(listOf(375), computeDeviceCells(1, "++[+++]", 500))
+        assertThrows(IllegalStateException::class.java) { computeDeviceCells(1, "<", 500) }
         assertEquals(listOf(0, 0, 0, 0, 0, 1, 1, 1, 1, 1), computeDeviceCells(10, "+>+>+>+>+", 10000))
         assertEquals(listOf(-1, -1, -1, -1, -1, 0, 0, 0, 0, 0), computeDeviceCells(10, "<-<-<-<-<-", 10000))
         assertEquals(listOf(1, 1, 1, 1, 1, 0, 0, 0, 0, 0), computeDeviceCells(10, "- <<<<< +[>+]", 10000))
